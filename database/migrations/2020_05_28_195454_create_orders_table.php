@@ -17,7 +17,6 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('payment_method_id');
             $table->unsignedFloat('checkout_amount')->default(0);
             $table->timestamps();
         });
@@ -25,7 +24,6 @@ class CreateOrdersTable extends Migration
         Schema::table('orders', function (Blueprint $table) {
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('payment_method_id')->references('id')->on('payment_methods');
         });
     }
 
