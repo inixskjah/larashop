@@ -44,4 +44,9 @@ Route::middleware('role:customer')->group(function() {
         Route::post('/{productFeedback}/rate', 'ProductFeedbackRateController@store')->name('rate.store');
     });
 
+    Route::prefix('wishlist')->name('wishlist.')->group(function() {
+
+        Route::post('/', 'WishlistController@store');
+
+    });
 });
