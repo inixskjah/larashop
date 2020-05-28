@@ -18,7 +18,6 @@ class CreatePaymentsTable extends Migration
             $table->unsignedBigInteger('payment_method_id');
             $table->unsignedBigInteger('order_id');
             $table->timestamp('completed_at')->nullable()->default(null);
-            $table->timestamps();
         });
 
         Schema::table('payments', function (Blueprint $table) {

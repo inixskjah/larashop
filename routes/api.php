@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
 Route::middleware('role:administrator')->group(function() {
 
     Route::prefix('products')->name('products.')->group(function() {
@@ -50,6 +51,12 @@ Route::middleware('role:customer')->group(function() {
     Route::prefix('wishlist')->name('wishlist.')->group(function() {
 
         Route::post('/', 'WishlistController@store');
+
+    });
+
+    Route::prefix('payment')->name('payment.')->group(function() {
+
+        Route::post('/', 'PaymentController@store')->name('store');
 
     });
 });
