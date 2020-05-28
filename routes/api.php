@@ -39,6 +39,9 @@ Route::middleware('role:customer')->group(function() {
 
         Route::post('/', 'ProductFeedbackController@store')->name('store');
 
+
+
+        Route::post('/{productFeedback}/rate', 'ProductFeedbackRateController@store')->name('rate.store');
     });
 
 });
