@@ -25,3 +25,12 @@ Route::middleware('role:administrator')->group(function() {
 
 });
 
+Route::middleware('role:customer')->group(function() {
+
+    Route::prefix('orders')->name('orders.')->group(function() {
+
+        Route::post('/', 'OrderController@store')->name('store');
+
+    });
+
+});
