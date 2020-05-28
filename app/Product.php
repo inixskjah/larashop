@@ -13,4 +13,9 @@ class Product extends Model
     /**
      * TODO: Implement relationships
      */
+
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
 }

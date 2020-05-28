@@ -21,6 +21,9 @@ Route::middleware('role:administrator')->group(function() {
         Route::put('/{product}', 'ProductController@update')->name('update');
 
         Route::delete('/{product}', 'ProductController@destroy')->name('destroy');
+
+
+        Route::post('/{product}/cover-image', 'ProductCoverImageController@store')->name('coverImage.store');
     });
 
 });
