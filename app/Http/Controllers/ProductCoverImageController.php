@@ -18,7 +18,7 @@ class ProductCoverImageController extends Controller
      */
     public function store(Request $request, Product $product)
     {
-        
+
         $product->images()->update([
             "is_cover" => false
         ]);
