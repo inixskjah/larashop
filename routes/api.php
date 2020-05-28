@@ -33,4 +33,12 @@ Route::middleware('role:customer')->group(function() {
 
     });
 
+    Route::prefix('feedback')->name('feedback.')->group(function() {
+
+        Route::get('/', 'ProductFeedbackController@index')->name('index');
+
+        Route::post('/', 'ProductFeedbackController@store')->name('store');
+
+    });
+
 });

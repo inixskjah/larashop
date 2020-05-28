@@ -18,10 +18,9 @@ class OrderController extends Controller
     {
         $order = Order::create([
             "checkout_amount" => $request->checkout_amount,
-            "product_id"      => $request->product_id
+            "product_id"      => $request->product_id,
+            "user_id"         => auth()->user()->id
         ]);
-
-        $order->setUser(auth()->user());
 
         return response()->json([
             "success" => true,

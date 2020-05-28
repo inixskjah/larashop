@@ -9,4 +9,8 @@ class Product extends Model
     protected $fillable = [
         "title", "description"
     ];
+
+    /**
+     * TODO: Implement relationships
+     */
 }
