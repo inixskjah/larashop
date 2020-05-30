@@ -37,16 +37,27 @@ Route::middleware('role:customer')->group(function() {
 
     });
 
-    Route::prefix('feedback')->name('feedback.')->group(function() {
+    Route::prefix('products')->name('products.')->group(function() {
 
-        Route::get('/', 'ProductFeedbackController@index')->name('index');
+        Route::prefix('{product}')->group(function() {
 
-        Route::post('/', 'ProductFeedbackController@store')->name('store');
+            Route::prefix('feedback')->name('feedback.')->group(function() {
 
+                Route::get('/', 'ProductFeedbackController@index')->name('index');
 
+                Route::post('/', 'ProductFeedbackController@store')->name('store');
 
-        Route::post('/{productFeedback}/rate', 'ProductFeedbackRateController@store')->name('rate.store');
+                /**
+                 *
+                 * Like / Dislike functionality route
+                 *
+                 */
+                Route::post('/{productFeedback}/rate', 'ProductFeedbackRateController@store')->name('rate.store');
+            });
+
+        });
     });
+
 
     Route::prefix('wishlist')->name('wishlist.')->group(function() {
 

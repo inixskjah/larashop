@@ -14,7 +14,6 @@ class ProductFeedbackRequest extends FormRequest
     public function rules()
     {
         return [
-            "product_id"    => "required:exists:App\Product,id",
             "message"       => "required"
         ];
     }
